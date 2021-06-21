@@ -10,18 +10,25 @@ package com.bridgelabz.moodanalyse;
 public class MoodAnalyser {
 	private String message;
 
-	public MoodAnalyser() {
-		super();
-	}
-
+	/**
+	 * @param message : This message is send by test method
+	 */
 	public MoodAnalyser(String message) {
 		this.message = message;
 	}
 
+	/**
+	 * If message contains "sad" it returns SAD else it returns HAPPY. If message is
+	 * Null it returns HAPPY
+	 * @return mood
+	 */
 	public String analyseMood() {
-		if (message.contains("sad")) {
-			return "SAD";
-		} else {
+		try {
+			if (message.contains("sad"))
+				return "SAD";
+			else
+				return "HAPPY";
+		} catch (NullPointerException e) {
 			return "HAPPY";
 		}
 	}
